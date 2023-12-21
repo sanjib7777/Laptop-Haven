@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.give_detail{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(212, 210, 210);
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-40%);
+    box-shadow: 10px 10px 5px lightblue;
+    display: none;
+}
