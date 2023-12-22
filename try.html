@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Laptop Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        nav {
+            background-color: #555;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .product {
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #555;
+            color: #fff;
+        }
+
+        /* Style for the search bar */
+        #search-bar {
+            margin: 10px auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #search-box {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        #search-button {
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Style for the login and cart sections */
+        #login-section,
+        #cart-section {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img src="your_logo.png" alt="LaptopStore Logo">
+
+        <!-- Search Bar Section -->
+        <div id="search-bar">
+            <input type="text" id="search-box" placeholder="Search...">
+            <button id="search-button">Search</button>
+        </div>
+
+        <!-- Login and Cart Sections -->
+        <div id="login-section">
+            <a href="#">Login</a>
+        </div>
+        <div id="cart-section">
+            <a href="#">Your Cart</a>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#">Laptops</a>
+        <a href="#">Gaming Laptops</a>
+        <a href="#">Desktops</a>
+        <a href="#">Brands</a>
+        <a href="#">Accessories</a>
+        <!-- Add more navigation links as needed -->
+    </nav>
+
+    <div class="main-content">
+        <div class="product">
+            <h2>Featured Laptop</h2>
+            <img src="laptop_image.jpg" alt="Featured Laptop">
+            <p>Description of the featured laptop. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p><strong>Price:</strong> $999.99</p>
+            <button>Add to Cart</button>
+        </div>
+
+        <!-- Add more product sections or content as needed -->
+
+    </div>
+
+    <footer>
+        <p>&copy; 2023 LaptopStore. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
