@@ -1,3 +1,24 @@
+<?php
+include 'connect.php';
+if(isset($_POST['submit'])){
+  $lname=$_POST['lname'];
+  $spec=$_POST['specification'];
+  $price=$_POST['price'];
+  $image=$_POST['image'];
+  $sql="insert into `ldetails` (Laptop_name,Specification,Price,Image)
+  values ('$lname','$spec','$price','$image')";
+  $result=mysqli_query($conn,$sql);
+  if($result){
+    echo "data inserted successfully";
+  }
+  else{
+    die(mysqli_error($conn));
+  }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,21 +45,22 @@
         </thead>
       </table>
       <div class="give_detail px-5 pt-5 ">
-        <form action="">
+        <form  method="post">
           <i class="fa-regular fa-circle-xmark " style="font-size: 35px;position: absolute; right: 10px; top:10px; cursor: pointer;"></i>
           <h3>Laptop Name</h3>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">          <h3>Specification</h3>
-          <textarea name="" id=""cols="80" rows="5"  class="form-control"></textarea>
+          <input type="text" name="lname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <h3>Specification</h3>
+          <textarea name="specification" id=""cols="80" rows="5"  class="form-control"></textarea>
           <h3>Price</h3>
           <div class="input-group mb-3">
             <span class="input-group-text">Rs</span>
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <input type="text" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
             <span class="input-group-text">.00</span>
           </div>
           <h3>Image</h3>
-          <input type="file"><br>
+          <input type="file" name="image"><br>
           <div class="text-center">
-            <input type="submit" class="btn btn-primary btn-lg my-3">
+            <input type="submit" name="submit" class="btn btn-primary btn-lg my-3">
           </div>
           <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, in? -->
         </form>
