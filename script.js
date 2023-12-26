@@ -4,3 +4,4 @@ document.querySelector('.add-btn').addEventListener('click',() =>{
 document.querySelector('.fa-circle-xmark').addEventListener('click',() =>{
     document.querySelector('.give_detail').style.display="none";
 })
+

@@ -9,7 +9,9 @@ if(isset($_POST['submit'])){
   values ('$lname','$spec','$price','$image')";
   $result=mysqli_query($conn,$sql);
   if($result){
-    echo "data inserted successfully";
+    echo  "data inserted successfully";
+    header("location:adminpanel.php"); 
+    exit;
   }
   else{
     die(mysqli_error($conn));
@@ -32,6 +34,10 @@ if(isset($_POST['submit'])){
 <body>
     <h1>Laptop Details</h1><br>
     <button type="button" class="btn btn-primary btn-lg add-btn">Add Laptop</button>
+    <?php
+    $query="Select * from ldetails";
+    $result=mysqli_query($conn,$query);
+    ?>
     <table class="table my-5">
         <thead>
           <tr>
@@ -40,29 +46,64 @@ if(isset($_POST['submit'])){
             <th scope="col">Specification</th>
             <th scope="col">Price</th>
             <th scope="col">Image</th>
-            <th scope="col">Operation</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+
           </tr>
         </thead>
+        <tbody>
+          <?php
+          if(mysqli_num_rows($result)>0){
+            while($row=mysqli_fetch_assoc($result)){
+
+              ?>
+              <tr>
+              <td><?php echo $row['SN']; ?></td>
+              <th scope="row"><?php echo $row['Laptop_name']; ?></th>
+              <td><?php echo $row['Specification']; ?></td>
+              <td><?php echo "Rs ".$row['Price'];?></td>
+              <td><?php echo $row['Image']; ?></td>
+              <td>
+                <form action="edit.php" method="post">
+                  <input type="hidden" name="edit-id" value="<?php echo $row['SN'];?>">
+                  <button type="submit" name="btn-edit"  class="btn btn-success btn-edit mx-2" >Edit</button>
+                </form></td>
+               <td>  
+               <form action="delete.php" method="post">
+               <input type="hidden" name="edit-id" value="<?php echo $row['SN'];?>">
+                <button class="btn btn-danger" name="btn-delete" onclick="return confirm('Do you want to delete the records?')">Delete</button>
+               </form>
+              </td>
+            </tr> 
+            <?php  
+            }
+          }
+          else{
+            echo "No records found";
+          }
+          ?>
+            
+        </tbody>
       </table>
       <div class="give_detail px-5 pt-5 ">
-        <form  method="post">
+        <form  method="post" action="adminpanel.php">
           <i class="fa-regular fa-circle-xmark " style="font-size: 35px;position: absolute; right: 10px; top:10px; cursor: pointer;"></i>
           <h3>Laptop Name</h3>
-          <input type="text" name="lname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <input type="text" name="lname" class="form-control" id="lname" aria-describedby="emailHelp">
           <h3>Specification</h3>
-          <textarea name="specification" id=""cols="80" rows="5"  class="form-control"></textarea>
+          <textarea name="specification" id="specs"cols="80" rows="5"  class="form-control"></textarea>
           <h3>Price</h3>
           <div class="input-group mb-3">
             <span class="input-group-text">Rs</span>
-            <input type="text" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
+            <input type="text"id="price" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
             <span class="input-group-text">.00</span>
           </div>
           <h3>Image</h3>
           <input type="file" name="image"><br>
           <div class="text-center">
-            <input type="submit" name="submit" class="btn btn-primary btn-lg my-3">
+            <input type="submit" id="edit_save" name="submit" class="btn btn-primary btn-lg my-3">
           </div>
-          <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, in? -->
+        
         </form>
       </div>
       <script src="script.js"></script>
