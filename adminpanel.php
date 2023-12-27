@@ -32,36 +32,38 @@ if(isset($_POST['submit'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">  
 </head>
 <body>
-    <h1>Laptop Details</h1><br>
+    <h1>Laptop Details</h1><br> 
     <button type="button" class="btn btn-primary btn-lg add-btn">Add Laptop</button>
     <?php
     $query="Select * from ldetails";
     $result=mysqli_query($conn,$query);
     ?>
-    <table class="table my-5">
-        <thead>
-          <tr>
+    <table class="table table-responsive my-5 table-bordered table-hover ">
+        <thead class="thead-dark">
+          <tr class="table-dark text-center">
             <th scope="col">No.</th>
-            <th scope="col">Laptop Name</th>
+            <th scope="col" class="text-nowrap" >Laptop Name</th>
             <th scope="col">Specification</th>
             <th scope="col">Price</th>
             <th scope="col">Image</th>
-            <th scope="col">Update</th>
-            <th scope="col">Delete</th>
+            <th scope="col" colspan="2">Operation</th>
+            
 
           </tr>
         </thead>
         <tbody>
           <?php
           if(mysqli_num_rows($result)>0){
+            $i=1;
             while($row=mysqli_fetch_assoc($result)){
+             
 
               ?>
-              <tr>
-              <td><?php echo $row['SN']; ?></td>
+              <tr >
+              <td><?php echo $i; ?></td>
               <th scope="row"><?php echo $row['Laptop_name']; ?></th>
               <td><?php echo $row['Specification']; ?></td>
-              <td><?php echo "Rs ".$row['Price'];?></td>
+              <td class="text-nowrap"><?php echo "Rs ".$row['Price'];?></td>
               <td><?php echo $row['Image']; ?></td>
               <td>
                 <form action="edit.php" method="post">
@@ -76,8 +78,10 @@ if(isset($_POST['submit'])){
               </td>
             </tr> 
             <?php  
+            $i++;
             }
-          }
+            }
+          
           else{
             echo "No records found";
           }
