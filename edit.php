@@ -1,5 +1,6 @@
 
 <?php
+session_start();
    include('connect.php');
  if (isset($_POST['submit'])) {
     $id=$_POST['edit-id'];
@@ -12,7 +13,7 @@
 
      // Check if the update query was successful
      if ($result) {
-         echo "Updated successfully";
+      $_SESSION['message_update']='Updated Successfully';
          header('location:adminpanel.php');
      } else {
          die("Error updating record: " . mysqli_error($conn));
