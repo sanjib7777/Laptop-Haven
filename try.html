@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Floating Label Example</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- Custom CSS for Floating Label -->
+  <style>
+    .form-group {
+      position: relative;
+      margin-bottom: 1.5rem; /* Adjust the spacing as needed */
+    }
+
+    .form-control {
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid #ced4da; /* Default Bootstrap border color */
+    }
+
+    .form-label {
+      position: absolute;
+      top: 0.25rem;
+      left: 0.75rem;
+      transition: all 0.2s ease-out;
+      pointer-events: none; /* Ensure the label doesn't interfere with input focus */
+    }
+
+    .form-control:focus + .form-label,
+    .form-control:not(:placeholder-shown) + .form-label {
+      font-size: 0.75rem;
+      top: -1rem;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="container ">
+    <div class="row">
+      <div class="col-md-6 mb-4 ">
+        <div class="form-group my-19">
+          <input type="text" id="form3Example1" class="form-control" placeholder=" " />
+          <label class="form-label" for="form3Example1">First name</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS, Popper.js, and jQuery (required for Bootstrap) -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- Add your custom scripts here if needed -->
+
+</body>
+</html>

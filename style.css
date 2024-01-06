@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Allura', cursive;
+
+font-family: 'Roboto Serif', serif;
+
 }
 body {
   font-family: Arial, sans-serif;
@@ -124,3 +128,51 @@ a{
   color: rgb(120, 77, 226);
   transition: .5s
 }
+.gradient-custom-2 {
+  /* fallback for old browsers */
+  background: #fccb90;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  }
+  
+  @media (min-width: 768px) {
+  .gradient-form {
+  height: 100vh !important;
+  }
+  }
+  @media (min-width: 769px) {
+  .gradient-custom-2 {
+  border-top-right-radius: .3rem;
+  border-bottom-right-radius: .3rem;
+  }
+  }
+  .form-group {
+    position: relative;
+    margin-bottom: 1.5rem; /* Adjust the spacing as needed */
+  }
+
+  .form-control {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #ced4da; 
+  }
+
+  .form-label {
+    position: absolute;
+    top: 0.25rem;
+    left: 0.75rem;
+    transition: all 0.2s ease;
+    pointer-events: none; /* Ensure the label doesn't interfere with input focus */
+  }
+
+  .form-control:focus + .form-label,
+  .form-control:not(:placeholder-shown) + .form-label {
+    font-size: 1rem;
+    left: -0.2rem;
+    top: -1.7rem;
+  }
+  
