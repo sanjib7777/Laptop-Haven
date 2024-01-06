@@ -3,6 +3,99 @@
     padding: 0;
     box-sizing: border-box;
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header img {
+  max-width: 100px;
+  max-height: 100px;
+}
+/* Nav bar */
+.navbar-nav .nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+nav {
+  background-color: #555;
+ 
+}
+.bar{
+  border-bottom: 1px solid black ;
+  border-width:2px ;
+  margin-right: 50px;
+}
+nav a {
+  float: left;
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.main-content {
+  padding: 20px;
+}
+
+.product {
+  margin: 10px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #555;
+  color: #fff;
+}
+
+/* Style for the search bar */
+#search-bar {
+  margin: 10px auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-box {
+  padding: 8px;
+  font-size: 16px;
+}
+
+#search-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Style for the login and cart sections */
+#login-section,
+#cart-section {
+  margin: 0 10px;
+  color: #ffffff;
+}
+a{
+  text-decoration: none;
+  color: #ffffff; 
+}
 .give_detail{
     background-color: rgb(255, 255, 255);
     border: 1px solid rgb(212, 210, 210);
@@ -27,6 +120,7 @@
       opacity: 1;
     }
   }
-  
-  
-
+.dropd:hover{
+  color: rgb(120, 77, 226);
+  transition: .5s
+}

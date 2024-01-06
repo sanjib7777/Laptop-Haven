@@ -66,7 +66,7 @@ if(isset($_POST['submit'])){
              
 
               ?>
-              <tr >
+              <tr class="text-center">
               <td><?php echo $i; ?></td>
               <th scope="row"><?php echo $row['Laptop_name']; ?></th>
               <td><?php echo $row['Specification']; ?></td>
@@ -126,7 +126,6 @@ if(isset($_POST['submit'])){
           alertify.set('notifier','delay', 2);
         alertify.set('notifier','position', 'top-right');
         alertify.notify('<?php echo $_SESSION['message_update'] ?>');
-      
         <?php 
         unset($_SESSION['message_update']);
         } 
@@ -136,8 +135,6 @@ if(isset($_POST['submit'])){
         alertify.set('notifier','position', 'top-right');
         alertify.error('<?php echo $_SESSION['message_delete'] ?>');
         <?php 
-        
-        
         unset($_SESSION['message_delete']);
         } 
         ?>
