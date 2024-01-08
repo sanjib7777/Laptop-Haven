@@ -1,3 +1,26 @@
+<?php
+  include 'connect.php';
+  if(isset($_POST['submit'])){
+    $fname=$_POST['fname'];
+    $lname=$_POST['lname'];
+    $username=$_POST['uname'];
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $fullname= $fname." ".$lname;
+    $sql="INSERT INTO `signup` (FullName,Username,Email,Password)
+    VALUES ('$fullname','$username','$email','$password')";
+    $result=mysqli_query($conn,$sql);
+    if($result){
+      header("location:verification.php");
+    }
+    else{
+      die (mysqli_error($conn));
+    }
+  }
+  
+  
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,18 +65,18 @@
               ">
             <div class="card-body card shadow p-5 shadow-5 text-center">
               <h2 class="fw-bold mb-5">Sign up now</h2>
-              <form>
+              <form method="post">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
                     <div class="col-md-6  ">
                         <div class="form-group">
-                          <input type="text" id="form3Example1" class="form-control" placeholder=" " />
+                          <input type="text" name="fname" id="form3Example1" class="form-control" placeholder=" " />
                           <label class="form-label" for="form3Example1">First name</label>
                         </div>
                       </div>
                       <div class="col-md-6  ">
                         <div class="form-group">
-                          <input type="text" id="form3Example1" class="form-control" placeholder=" " />
+                          <input type="text" name="lname" id="form3Example1" class="form-control" placeholder=" " />
                           <label class="form-label" for="form3Example1">Last name</label>
                         </div>
                       </div>
@@ -61,14 +84,14 @@
 
                 <div class="col-md-20 mb-4 ">
                     <div class="form-group">
-                      <input type="text" id="form3Example1" class="form-control" placeholder=" " />
+                      <input type="text" name="uname" id="form3Example1" class="form-control" placeholder=" " />
                       <label class="form-label" for="form3Example1">Username</label>
                     </div>
                   </div>
                 <!-- Email input -->
                 <div class="col-md-20 mb-4 ">
                     <div class="form-group">
-                      <input type="text" id="form3Example1" class="form-control" placeholder=" " />
+                      <input type="text" name="email" id="form3Example1" class="form-control" placeholder=" " />
                       <label class="form-label" for="form3Example1">Email</label>
                     </div>
                   </div>
@@ -77,7 +100,7 @@
                 <!-- Password input -->
                 <div class="col-md-20 mb-4 ">
                     <div class="form-group">
-                      <input type="text" id="form3Example1" class="form-control" placeholder=" " />
+                      <input type="text" name="password" id="form3Example1" class="form-control" placeholder=" " />
                       <label class="form-label" for="form3Example1">Password</label>
                     </div>
                   </div>
@@ -92,7 +115,7 @@
   
                 <!-- Submit button -->
 
-                <button type="submit" class="btn btn-primary btn-block mb-4 px-5 py-2">
+                <button type="submit" name="submit" class="btn btn-primary btn-block mb-4 px-5 py-2">
                   Sign up
                 </button>
   
