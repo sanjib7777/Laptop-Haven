@@ -1,5 +1,37 @@
 <?php
-  include 'connect.php';
+session_start();
+include 'connect.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+//Load Composer's autoloader
+require 'vendor/autoload.php';
+
+function verify_code($fullname,$email,$verificationCode){
+  $mail = new PHPMailer(true);
+  $mail->isSMTP();                                            //Send using SMTP
+  $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+  $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+  $mail->Username   = 'sanjibshah2020@gmail.com';                     //SMTP username
+  $mail->Password   = 'sanjibshah123';                               //SMTP password
+  $mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
+  $mail->Port       =587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+  //Recipients
+  $mail->setFrom('sanjibshah777@gmail.com', 'Mailer');
+  $mail->addAddress($email);     //Add a recipient
+  
+  //Content
+  $mail->isHTML(true);                                  //Set email format to HTML
+  $mail->Subject = "hi .$fullname ! \n Email verification from Lalit Trading Co.";
+  $mail->Body    = "your verification code is .$verificationCode";
+  // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+  $mail->send();
+  echo 'Message has been sent';
+}
+  
   if(isset($_POST['submit'])){
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];
@@ -7,18 +39,31 @@
     $email=$_POST['email'];
     $password=$_POST['password'];
     $fullname= $fname." ".$lname;
-    $sql="INSERT INTO `signup` (FullName,Username,Email,Password)
-    VALUES ('$fullname','$username','$email','$password')";
-    $result=mysqli_query($conn,$sql);
-    if($result){
-      header("location:verification.php");
-    }
-    else{
-      die (mysqli_error($conn));
-    }
-  }
+    $verificationCode = rand(100000, 999999);
+    verify_code("$fullname","$email","$verificationCode");
+    echo "sent or not?";
+//     $check_email="SELECT email from signup where email='$email' LIMIT 1";
+//     $check_result_run=mysqli_query($conn,$check_email);
+//     if(mysqli_num_rows($check_result_run)>0){
+//       $_SESSION['status']="Email id already exist";
+//       header("location:signup.php");
+//     }
+// else{
+//     $sql="INSERT INTO `signup` (FullName,Username,Email,Password,Verification_Code)
+//     VALUES ('$fullname','$username','$email','$password','$verificationCode')";
+//     $result=mysqli_query($conn,$sql);
+//     if($result){
+//       verify_code("$fullname","$email","$verificationCode");
+//       header("location:verification.php");
+//     }
+//     else{
+//       $_SESSION['status']="Email failed";
+//       echo $_SESSION['status'];
+//       header("location:signup.php");
+//     }
+//   }
   
-  
+}
 
 ?>
 <!DOCTYPE html>
