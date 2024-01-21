@@ -103,21 +103,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="signup_login.css">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+         .inp {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .inp i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .inp input {
+        padding-left: 30px; /* Adjust the value to leave space for the icon */
+        width: 250px; /* Adjust the width as needed */
+    }
+    </style>
 </head>
 <body>
       <form  method="post">
-                                <i class="fa-sharp fa-solid fa-circle-xmark "></i>
-                                <h2>Sign Up</h2>
+                                <!-- <i class="fa-sharp fa-solid fa-circle-xmark "></i> -->
+                                <h1 style="color:white;">Sign Up</h1>
                                 <div class="inp">
-                                    <i class="fa-solid fa-user"></i>
+                                    <i class="fa-solid fa-user" style="color: #D10024;"></i>
                                     <input type="text " placeholder="Username" style="font-size: 20px;" name="username" required>
                                 </div>
                                 <div class="inp mail">
-                                    <i class="fa-solid fa-envelope"></i>
+                                    <i class="fa-solid fa-envelope" style="color: #D10024;"></i>
                                     <input type="email" style="font-size: 20px;"placeholder="Email" name="email" required>
                                 </div>
                                 <div class="inp">
-                                    <i class="fa-solid fa-lock"></i>
+                                    <i class="fa-solid fa-lock" style="color: #D10024;"></i>
                                     <input type="password" placeholder="Password" style="font-size: 20px;" name="password" required>
                                 </div>
                                 <div class="check">

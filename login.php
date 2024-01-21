@@ -41,18 +41,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="signup_login.css">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Add your existing styles here */
+        
+        .inp {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .inp i {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+
+        .inp input {
+        padding-left: 30px; /* Adjust the value to leave space for the icon */
+        width: 250px; /* Adjust the width as needed */
+    }
+</style>
 </head>
 <body>
     <form  method="POST">
-        <i class="fa-sharp fa-solid fa-circle-xmark b"></i>
-        <h2>Login</h2>
+        <!-- <i class="fa-sharp fa-solid fa-circle-xmark b"></i> -->
+        <h1 style="color:white;">Login</h1>
         <div class="inp">
-            <i class="fa-solid fa-user"></i>
-            <input type="text " placeholder="Username" name="name" style="font-size: 20px;" required>
+            <i class="fa-solid fa-user" style="color: #D10024;"></i>
+            <input type="text " placeholder="Username" name="name"  required>
         </div>
         <div class="inp">
-            <i class="fa-solid fa-lock"></i>
-            <input type="password " placeholder="Password" name="pass" style="font-size: 20px;" required>
+            <i class="fa-solid fa-lock" style="color:#D10024"></i>
+            <input type="password" placeholder="Password" name="pass"  required>
         </div>
         <div class="check">
             <input type="checkbox" >
