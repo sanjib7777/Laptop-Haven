@@ -1,0 +1,88 @@
+form {
+    background-color: #272727;
+    border: 2px solid #524e4b;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(105, 104, 104, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #f1e8e8;
+}
+
+.inp {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.inp i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #e6847d;
+}
+
+.inp input {
+    width: calc(100% - 30px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ee7724;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.check input {
+    margin-right: 10px;
+}
+
+.check label {
+    color: #f1ebeb;
+}
+
+button {
+    background-color: #d8363a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c21515;
+}
+
+.sign_up_link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.sign_up_link p {
+    color: #cbc5c5;
+}
+
+.in_link {
+    color: #ee2424;
+    cursor: pointer;
+}
+.up_link {
+    color:#ee2424;
+    cursor: pointer;
+}

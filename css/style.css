@@ -853,10 +853,11 @@ textarea.input {
 \*----------------------------*/
 
 .product {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   margin: 15px 0px;
-  -webkit-box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
-  box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED;
+  /* -webkit-box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED; */
+  /* box-shadow: 0px 0px 0px 0px #E4E7ED, 0px 0px 0px 1px #E4E7ED; */
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
 }
@@ -1491,7 +1492,7 @@ textarea.input {
   display: inline-block;
   font-size: 24px;
   margin-top: 10px;
-  margin-bottom: 15px;
+  /* margin-bottom: px; */
   color: #D10024;
 }
 

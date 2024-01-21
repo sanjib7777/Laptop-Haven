@@ -1,24 +1,3 @@
-<?php
-session_start();
-include 'connect.php';
-if(isset($_POST['submit'])){
-  $lname=$_POST['lname'];
-  $spec=$_POST['specification'];
-  $price=$_POST['price'];
-  $image=$_POST['image'];
-  $sql="insert into `ldetails` (Laptop_name,Specification,Price,Image)
-  values ('$lname','$spec','$price','$image')";
-  $result=mysqli_query($conn,$sql);
-  if($result){
-    $_SESSION['message_add']='Added Successfully';
-    header("location:adminpanel.php"); 
-    exit;
-  }
-  else{
-    die(mysqli_error($conn));
-  }
-}
-?>
 
 
 
@@ -40,8 +19,11 @@ if(isset($_POST['submit'])){
   </head>
 <body>
     <h1>Laptop Details</h1><br> 
-    <button type="button" class="btn btn-primary btn-lg add-btn">Add Laptop</button>
+    <form action="add_laptop.php">
+      <button type="submit"  class="btn btn-primary btn-lg add-btn">Add Laptop</button>
+    </form>
     <?php
+    include 'connect.php';
     $query="Select * from ldetails";
     $result=mysqli_query($conn,$query);
     ?>
@@ -50,9 +32,16 @@ if(isset($_POST['submit'])){
           <tr class="table-dark text-center">
             <th scope="col">No.</th>
             <th scope="col" class="text-nowrap" >Laptop Name</th>
-            <th scope="col">Specification</th>
+            <th scope="col">Processor</th>
+            <th scope="col">Graphics</th>
+            <th scope="col">RAM</th>
+            <th scope="col">Storage</th>
+            <th scope="col">OS</th>
+            <th scope="col">Display</th>
+            <th scope="col">Other Features</th>
             <th scope="col">Price</th>
             <th scope="col">Image</th>
+            <th scope="col">Top</th>
             <th scope="col" colspan="2">Operation</th>
             
 
@@ -63,17 +52,23 @@ if(isset($_POST['submit'])){
           if(mysqli_num_rows($result)>0){
             $i=1;
             while($row=mysqli_fetch_assoc($result)){
-             
-
               ?>
               <tr class="text-center">
               <td><?php echo $i; ?></td>
-              <th scope="row"><?php echo $row['Laptop_name']; ?></th>
-              <td><?php echo $row['Specification']; ?></td>
+              <th scope="row"><?php echo $row['Laptop_Name']; ?></th>
+              <td><?php echo $row['Processor']; ?></td>
+              <td><?php echo $row['Graphics']; ?></td>
+              <td><?php echo $row['RAM']; ?></td>
+              <td><?php echo $row['Storage']; ?></td>
+              <td><?php echo $row['OS']; ?></td>
+              <td><?php echo $row['Display']; ?></td>
+              <td><?php echo $row['Other_Features']; ?></td>
               <td class="text-nowrap"><?php echo "Rs ".$row['Price'];?></td>
               <td><?php echo $row['Image']; ?></td>
+              <td><?php echo $row['Top']; ?></td>
+
               <td>
-                <form action="edit.php" method="post">
+                <form action="update.php" method="post">
                   <input type="hidden" name="edit-id" value="<?php echo $row['SN'];?>">
                   <button type="submit" name="btn-edit"  class="btn btn-success btn-edit mx-2" >Edit</button>
                 </form></td>
@@ -89,35 +84,12 @@ if(isset($_POST['submit'])){
             }
             }
           
-          else{
-            echo "No records found";
-          }
+          
           ?>
             
         </tbody>
-      </table>
-      <div class="give_detail px-5 pt-5 ">
-        <form  method="post" action="adminpanel.php">
-          <i class="fa-regular fa-circle-xmark " style="font-size: 35px;position: absolute; right: 10px; top:10px; cursor: pointer;"></i>
-          <h3>Laptop Name</h3>
-          <input type="text" name="lname" class="form-control" id="lname" aria-describedby="emailHelp">
-          <h3>Specification</h3>
-          <textarea name="specification" id="specs"cols="80" rows="5"  class="form-control"></textarea>
-          <h3>Price</h3>
-          <div class="input-group mb-3">
-            <span class="input-group-text">Rs</span>
-            <input type="text"id="price" name="price" class="form-control" aria-label="Amount (to the nearest dollar)">
-            <span class="input-group-text">.00</span>
-          </div>
-          <h3>Image</h3>
-          <input type="file" name="image"><br>
-          <div class="text-center">
-            <input type="submit" id="edit_save" name="submit" class="btn btn-primary btn-lg my-3">
-          </div>
-        
-        </form>
-      </div>
-      <script src="script.js"></script>
+        </table>
+      
       <!-- alertify js -->
       <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
       <script>
