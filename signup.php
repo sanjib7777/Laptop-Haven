@@ -68,29 +68,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Store the verification code and email in a database or session
         // For example, you can use a session to store the data temporarily
         session_start();
+        $_SESSION["password"]=$hashed_password ;
         $_SESSION["verification_code"] = $verificationCode;
+        $_SESSION["username"]=$username;
         $_SESSION["email"] = $email;
-        $stmt = $conn->prepare("INSERT INTO user_info (Username,Email,PASSWORD) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $username,$email,$password);
-    $stmt->execute();
-    $stmt->close();
-        // Redirect to the verification page
-        // header("Location: verification.php");
-        // exit();
+       header("location:verification.php");
+       exit();
     } else {
         echo "Failed to send verification email.";
         exit(); // Add exit() to stop further execution if email sending fails
     }
-
-    // Prepare and execute the SQL query to insert data into the table
-    
-
-    $conn->close();
-
-    // You can redirect the user to a thank-you page or do other processing here
-    header("Location: verification.php");
-    exit();
 }
+   
 ?>
 
 
@@ -140,10 +129,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <i class="fa-solid fa-lock" style="color: #D10024;"></i>
                                     <input type="password" placeholder="Password" style="font-size: 20px;" name="password" required>
                                 </div>
-                                <div class="check">
+                                <!-- <div class="check">
                                     <input type="checkbox" required>
                                     <label for="">I agree to the terms & condition </label>
-                                </div>
+                                </div> -->
                                 <button type="submit" id="btn">Sign Up</button>
                                 <div class="sign_up_link">
                                     <p>Already have an account?

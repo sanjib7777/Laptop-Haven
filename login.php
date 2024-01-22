@@ -10,14 +10,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $password = $_POST['pass'];
 
     // Replace the following condition with your actual authentication logic
-    $sql = "SELECT * FROM user_info WHERE Username = '$username' AND PASSWORD = '$password' LIMIT 1";
-    $result=mysqli_query($conn,$sql);
-    while($row=mysqli_fetch_array($result)){
-        $_SESSION['email']=$row['Email'];
-    }
-  if ($result) {
-    
+   $stmt = $conn->prepare("SELECT PASSWORD,Email FROM user_info WHERE Username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $stmt->bind_result($hashed_password,$email);
+    $stmt->fetch();
+    $stmt->close();
+    if ( password_verify($password, $hashed_password)) {
+        
         // Authentication successful, set session status
+        $_SESSION['email']=$email;
         $_SESSION['status'] = "logged_in";
         $_SESSION['user'] = $username;
         $_SESSION['join'] = date("Y-m-d H:i:s");
@@ -31,6 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     }
 }
+$conn->close();
 ?>
 
 
@@ -75,10 +78,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <i class="fa-solid fa-lock" style="color:#D10024"></i>
             <input type="password" placeholder="Password" name="pass"  required>
         </div>
-        <div class="check">
+        <!-- <div class="check">
             <input type="checkbox" >
             <label for="">Remember me</label>
-        </div>
+        </div> -->
         <button type="submit" id="btn" name="submit">Login</button>
         <div class="sign_up_link">
             <p>Don't have an account?

@@ -8,13 +8,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($userCode == $_SESSION["verification_code"]) {
         // Code is correct, perform further actions (e.g., register the user)
         // echo "Verification successful!";
-        header("location:login.php");
-        $_SESSION['message_add']='Added Successfully';
-        // Clear session variables
+        include 'connect.php';
+
+        $username = $_SESSION["username"];
+        $email = $_SESSION["email"];
+        $hashed_password = $_SESSION["password"];
+
+        $stmt = $conn->prepare("INSERT INTO user_info (Username, Email, PASSWORD) VALUES (?, ?, ?)");
+        $stmt->bind_param("sss", $username, $email, $hashed_password);
+        $stmt->execute();
+        $stmt->close();
         unset($_SESSION["verification_code"]);
         unset($_SESSION["email"]);
+        unset($_SESSION["username"]);
+        unset($_SESSION["password"]);
+        header("location: login.php");
+        $_SESSION['message_add']='verification successful';
+        exit();
     } else {
-        header("location:index.php");
+        header("location:verification.php");
         $_SESSION['message_add']='verification failed ';
         // echo "Verification failed. Please enter the correct code.";
     }
