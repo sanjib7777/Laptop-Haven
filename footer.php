@@ -9,11 +9,11 @@
 					<div class="col-md-3 col-xs-6">
 						<div class="footer">
 							<h3 class="footer-title">About Us</h3>
-							<p>Elevate your digital experience with <span style="color: #D10024;"> Laptop Haven </span> Your adventure begins here.</p>
+							<p>Elevate your digital experience with <span style="color: #D10024;"> GadgetTech </span> Your adventure begins here.</p>
 							<ul class="footer-links">
 								<li><a href="#"><i class="fa fa-map-marker"></i>Balkumari, Lalitpur</a></li>
 								<li><a href="#"><i class="fa fa-phone"></i>+091-123214</a></li>
-								<li><a href="#"><i class="fa fa-envelope-o"></i>laptop_haven@email.com</a></li>
+								<li><a href="#"><i class="fa fa-envelope-o"></i>gadget_tech@email.com</a></li>
 							</ul>
 						</div>
 					</div>

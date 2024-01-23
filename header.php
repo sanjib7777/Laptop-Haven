@@ -162,7 +162,7 @@ session_start();
 		<!-- /Menu Toogle -->
         <ul class="header-links pull-left">
             <li><a href="#"><i class="fa fa-phone"></i> +977-9765566872</a></li>
-            <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
+            <li><a href="#"><i class="fa fa-envelope-o"></i> gadget_tech@email.com</a></li>
             <li><a href="#"><i class="fa fa-map-marker"></i> Balkumari,Lalitpur</a></li>
         </ul>
         <ul class="header-links pull-right">
