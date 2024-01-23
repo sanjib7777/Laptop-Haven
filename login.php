@@ -8,7 +8,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Your authentication logic goes here
     $username = $_POST['name'];
     $password = $_POST['pass'];
-
+    if($username=="admin" && $password=="admin123@"){
+        header("location:adminpanel.php");
+        exit();
+    }
     // Replace the following condition with your actual authentication logic
    $stmt = $conn->prepare("SELECT PASSWORD,Email FROM user_info WHERE Username = ?");
     $stmt->bind_param("s", $username);
@@ -16,6 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $stmt->bind_result($hashed_password,$email);
     $stmt->fetch();
     $stmt->close();
+    
     if ( password_verify($password, $hashed_password)) {
         
         // Authentication successful, set session status

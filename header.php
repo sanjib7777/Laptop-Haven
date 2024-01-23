@@ -34,6 +34,9 @@ session_start();
 	<link type="text/css" rel="stylesheet" href="css/style.css" />
 	<style>
 		/* Custom CSS for hover effect and responsiveness */
+		body{
+			scroll-behavior: smooth;
+		}
 		.btn-login,
 		.btn-signup {
 			transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
@@ -158,9 +161,9 @@ session_start();
 		</div>
 		<!-- /Menu Toogle -->
         <ul class="header-links pull-left">
-            <li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i> +977-9765566872</a></li>
             <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-            <li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+            <li><a href="#"><i class="fa fa-map-marker"></i> Balkumari,Lalitpur</a></li>
         </ul>
         <ul class="header-links pull-right">
 							<?php
@@ -193,7 +196,7 @@ session_start();
 					<div class="col-md-3">
 						<div class="header-logo">
 							<a href="#" class="logo">
-								<img src="./img/logo.png" alt="">
+								<img src="./img/logo.png" alt=""style="width:80px">
 							</a>
 						</div>
 					</div>
@@ -205,8 +208,10 @@ session_start();
 							<form>
 								<select class="input-select">
 									<option value="0">All Categories</option>
-									<option value="1">Category 01</option>
-									<option value="1">Category 02</option>
+									<option value="1">Laptop</option>
+									<option value="1">Apple Products</option>
+									<option value="1">Desktop</option>
+									<option value="1">Monitors</option>
 								</select>
 								<input class="input" placeholder="Search here">
 								<button class="search-btn">Search</button>

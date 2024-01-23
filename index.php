@@ -12,11 +12,11 @@ include 'header.php';
 				<!-- NAV -->
 				<ul class="main-nav nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Hot Deals</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Laptops</a></li>
-					<li><a href="#">Smartphones</a></li>
-					<li><a href="#">Cameras</a></li>
+					<li><a href="#">Apple Prodcuts</a></li>
+					<li><a href="#">Desktop</a></li>
+					<li><a href="#">Monitors</a></li>
+					
+					<li><a href="#">PC Builder</a></li>
 					<li><a href="#">Accessories</a></li>
 				</ul>
 				<!-- /NAV -->
@@ -40,7 +40,7 @@ include 'header.php';
 							<img src="./img/shop01.png" alt="">
 						</div>
 						<div class="shop-body">
-							<h3>Laptop<br>Collection</h3>
+							<h3>Upcoming <br>Laptop</h3>
 							<a href="#" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
 						</div>
 					</div>
@@ -82,7 +82,7 @@ include 'header.php';
 	<!-- /SECTION -->
 
 	<!-- SECTION -->
-	<div class="section">
+	<div class="section" id="laptop">
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
@@ -92,14 +92,7 @@ include 'header.php';
 				<div class="col-md-12">
 					<div class="section-title">
 						<h3 class="title">New Products</h3>
-						<div class="section-nav">
-							<ul class="section-tab-nav tab-nav">
-								<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-								<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-								<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-								<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-							</ul>
-						</div>
+						
 					</div>
 				</div>
 				<!-- /section title -->
@@ -228,7 +221,7 @@ include 'header.php';
 	<!-- /HOT DEAL SECTION -->
 
 	<!-- SECTION -->
-	<div class="section">
+	<div class="section" id="top_sell">
 		<!-- container -->
 		<div class="container">
 			<!-- row -->
@@ -422,78 +415,10 @@ include 'header.php';
 		<!-- /container -->
 	</div>
 	<!-- /NEWSLETTER -->
-
-	<!-- FOOTER -->
-	<footer id="footer">
-		<!-- top footer -->
-		<div class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-3 col-xs-6">
-						<div class="footer">
-							<h3 class="footer-title">About Us</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-							<ul class="footer-links">
-								<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-								<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-								<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="col-md-3 col-xs-6">
-						<div class="footer">
-							<h3 class="footer-title">Categories</h3>
-							<ul class="footer-links">
-								<li><a href="#">Hot deals</a></li>
-								<li><a href="#">Laptops</a></li>
-								<li><a href="#">Smartphones</a></li>
-								<li><a href="#">Cameras</a></li>
-								<li><a href="#">Accessories</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="clearfix visible-xs"></div>
-
-					<div class="col-md-3 col-xs-6">
-						<div class="footer">
-							<h3 class="footer-title">Information</h3>
-							<ul class="footer-links">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-								<li><a href="#">Orders and Returns</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="col-md-3 col-xs-6">
-						<div class="footer">
-							<h3 class="footer-title">Service</h3>
-							<ul class="footer-links">
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">View Cart</a></li>
-								<li><a href="#">Wishlist</a></li>
-								<li><a href="#">Track My Order</a></li>
-								<li><a href="#">Help</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /top footer -->
-
-
-	</footer>
-	<!-- /FOOTER -->
-
+ <?php
+ include 'footer.php';
+ ?>
+	
 	<script>
     function redirectToProductPage(id) {
         window.location.href = "product.php?Laptop_id=" + id;
