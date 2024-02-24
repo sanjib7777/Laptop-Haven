@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,8 +40,6 @@
             <th scope="col">Image</th>
             <th scope="col">Top</th>
             <th scope="col" colspan="2">Operation</th>
-            
-
           </tr>
         </thead>
         <tbody>
@@ -83,8 +78,7 @@
             $i++;
             }
             }
-          
-          
+
           ?>
             
         </tbody>
@@ -122,5 +116,57 @@
         ?>
         
       </script>
+
+<h1>User Details</h1><br> 
+    <form action="add_user.php">
+      <button type="submit"  class="btn btn-primary btn-lg add-btn">Add User</button>
+    </form>
+      <?php
+      
+      $query="Select * from user_info";
+
+    $result=mysqli_query($conn,$query);
+    ?>
+    <table class="table table-responsive my-5 table-bordered table-hover ">
+        <thead class="thead-dark">
+          <tr class="table-dark text-center">
+            <th scope="col">No.</th>
+            <th scope="col" class="text-nowrap" >User Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Cart ID</th>
+            <th scope="col" colspan="2">Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+        <?php
+          if(mysqli_num_rows($result)>0){
+            $i=1;
+            while($row1=mysqli_fetch_assoc($result)){
+
+              ?>
+              <tr class="text-center">
+              <td><?php echo $i; ?></td>
+              <th scope="row1"><?php echo $row1['Username']; ?></th>
+              <td><?php echo $row1['Email']; ?></td>
+              
+              
+              <td><?php  echo $row1['cart'] ?></td>
+               <td>  
+               <form action="delete_user.php" method="post">
+               <input type="hidden" name="add-id" value="<?php echo $row1['SN'];?>">
+                <button class="btn btn-danger" name="btn-delete" onclick="return confirm('Do you want to delete the records?')">Delete</button>
+               </form>
+              </td>
+            </tr> 
+            <?php  
+            $i++;
+            }
+            }
+
+          
+          ?>
+            
+        </tbody>
+        </table>
 </body>
 </html>
