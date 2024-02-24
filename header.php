@@ -13,6 +13,8 @@ session_start();
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<link rel="stylesheet" href="product.css">
 	<title>Electro - HTML Ecommerce Template</title>
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -238,6 +240,10 @@ session_start();
 							</button>
            							 </form>
          						 </div>';
+								  // Add Your Cart button
+           					 echo '<div>
+                     				 <a href="your_cart.php" class="btn btn-primary btn-your-cart " style="background-color: #D10024;"><i class="fa-solid fa-cart-shopping"></i></a>
+                  					</div>';
 							} else {
 								// User is not logged in, display Login and Signup buttons with Bootstrap classes
 								echo '<div class="contact">

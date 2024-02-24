@@ -66,7 +66,7 @@ if (mysqli_num_rows($result) == 1) {
                             </del></h3>
                         <span class="product-available">In Stock</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>ASUS laptops are renowned for their diverse range, encompassing gaming powerhouses in the Republic of Gamers (ROG) series to sleek and portable options in the ZenBook line. Known for innovation, ASUS often incorporates cutting-edge features like advanced cooling systems and high-refresh-rate displays.</p>
 
                     <div class="add-to-cart">
                         <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
