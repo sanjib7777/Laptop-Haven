@@ -20,9 +20,7 @@ if (mysqli_num_rows($result) == 1) {
 					<div class="col-md-12">
 						<ul class="breadcrumb-tree">
 							<li><a href="index.php">Home</a></li>
-							<!-- <li><a href="#">All Categories</a></li> -->
-							<!-- <li><a href="#">Accessories</a></li> -->
-							<!-- <li><a href="#">Headphones</a></li> -->
+
 							<li class="active"><?php echo $row['Laptop_Name']; ?></li>
 						</ul>
 					</div>
@@ -35,53 +33,57 @@ if (mysqli_num_rows($result) == 1) {
 
 		<!-- SECTION -->
 		<div class="section">
-    <div class="container">
-        <div class="row">
-            <!-- Product main img -->
-            <div class="col-md-6">
-                <div id="product-main-img">
-                    <div class="product-preview">
-                        <img src="./img/<?php echo $row['Image'] ?>" alt="">
-                    </div>
-                </div>
-            </div>
-            <!-- /Product main img -->
+			<div class="container">
+				<div class="row">
+					<!-- Product main img -->
+					<div class="col-md-6">
+						<div id="product-main-img">
+							<div class="product-preview">
+								<img src="./img/<?php echo $row['Image'] ?>" alt="">
+							</div>
+						</div>
+					</div>
+					<!-- /Product main img -->
 
-            <!-- Product details -->
-            <div class="col-md-6">
-                <div class="product-details">
-                    <h1 class="product-name"><?php echo $row['Laptop_Name'] ?></h1>
-                    <div>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="product-price">Rs <?php echo $row['Price'] ?> <del class="product-old-price">
-                                Rs <?php $a = $row['Price']; $del_price = 1.1 * $a; echo $del_price; ?>
-                            </del></h3>
-                        <span class="product-available">In Stock</span>
-                    </div>
-                    <p>ASUS laptops are renowned for their diverse range, encompassing gaming powerhouses in the Republic of Gamers (ROG) series to sleek and portable options in the ZenBook line. Known for innovation, ASUS often incorporates cutting-edge features like advanced cooling systems and high-refresh-rate displays.</p>
-
-                    <div class="add-to-cart">
-                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-                    </div>
-                    <h4>Key Features:</h4>
-                    <div class="table-container">
-                        <table class="table table table-striped ">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-							<tr>
+					<!-- Product details -->
+					<div class="col-md-6">
+						<div class="product-details">
+							<h1 class="product-name"><?php echo $row['Laptop_Name'] ?></h1>
+							<div>
+								<div class="product-rating">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-o"></i>
+								</div>
+							</div>
+							<div>
+								<h3 class="product-price">Rs <?php echo $row['Price'] ?> <del class="product-old-price">
+										Rs <?php $a = $row['Price'];
+											$del_price = 1.1 * $a;
+											echo $del_price; ?>
+									</del></h3>
+								<span class="product-available">In Stock</span>
+							</div>
+							<p>The <?php echo $row['Laptop_Name'] ?> laptop features an <?php echo $row['Processor'] ?> processor, <?php echo $row['RAM'] ?> RAM, and a <?php echo $row['Storage'] ?> storage for efficient multitasking and ample space. Its <?php echo $row['Display'] ?> display, complemented by <?php echo $row['Graphics'] ?> graphics, delivers vibrant visuals. With a 42Wh Li-ion battery, it ensures extended usage on the go, making it a powerful and versatile computing companion.</p>
+							<form action="addtocart.php" method="post">
+								<input type="hidden" name="Lid" value="<?php echo $row['SN'] ?>">
+								<div class="add-to-cart">
+									<button class="add-to-cart-btn" type="submit" name="addtocart1"><i class="fa fa-shopping-cart"></i> add to cart</button>
+								</div>
+							</form>
+							<h4>Key Features:</h4>
+							<div class="table-container">
+								<table class="table table table-striped ">
+									<thead>
+										<tr>
+											<th scope="col">Category</th>
+											<th scope="col">Description</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
 											<th scope="row">Processor</th>
 											<td><?php echo $row['Processor'] ?></td>
 
@@ -115,16 +117,17 @@ if (mysqli_num_rows($result) == 1) {
 											<th scope="row">Other Features</th>
 											<td colspan="2"><?php echo $row['Other_Features'] ?></td>
 
-										</tr>                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- /Product details -->
-        </div>
-    </div>
-</div>
-<!-- /SECTION -->
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!-- /Product details -->
+				</div>
+			</div>
+		</div>
+		<!-- /SECTION -->
 
 
 
@@ -168,8 +171,8 @@ if (mysqli_num_rows($result) == 1) {
 }
 ?>
 <?php
- include 'footer.php';
- ?>
+include 'footer.php';
+?>
 
 <!-- jQuery Plugins -->
 <script src="js/jquery.min.js"></script>
@@ -178,6 +181,19 @@ if (mysqli_num_rows($result) == 1) {
 <script src="js/nouislider.min.js"></script>
 <script src="js/jquery.zoom.min.js"></script>
 <script src="js/main.js"></script>
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script>
+<?php if (isset($_SESSION['cart_status'])){ ?>
+          alertify.set('notifier','delay', 2);
+        alertify.set('notifier','position', 'top-right');
+        alertify.success('<?php echo $_SESSION['cart_status'] ?>');
+        <?php 
+        
+        
+        unset($_SESSION['cart_status']);
+        } 
+        ?>
+</script>
 
 </body>
 
