@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> ece3f112eee4be60c4af70bb8be53300c0b0c634
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +15,6 @@
     <!-- Alertify js -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-
   
   </head>
 <body>
@@ -20,6 +23,7 @@
       <button type="submit"  class="btn btn-primary btn-lg add-btn">Add Laptop</button>
     </form>
     <?php
+    session_start();
     include 'connect.php';
     $query="Select * from ldetails";
     $result=mysqli_query($conn,$query);
@@ -87,8 +91,9 @@
       <!-- alertify js -->
       <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
       <script>
-    
+        
         <?php  if (isset($_SESSION['message_update'])){ ?>
+          
           alertify.set('notifier','delay', 2);
         alertify.set('notifier','position', 'top-right');
         alertify.notify('<?php echo $_SESSION['message_update'] ?>');

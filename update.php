@@ -17,7 +17,7 @@ if(isset($_POST['save'])){
   $sql="UPDATE  `ldetails` SET Laptop_Name='$lname', Processor='$proc', Graphics='$graphics', RAM='$ram' , Display='$display', OS='$os', Storage='$storage' , Other_Features='$other',Top='$top', Price='$price', Image='$image' WHERE SN=$id";
   $result=mysqli_query($conn,$sql);
   if($result){
-    $_SESSION['message_add']='Added Successfully';
+    $_SESSION['message_add']='Updated Successfully';
     header("location:adminpanel.php"); 
     exit;
   }
@@ -68,7 +68,7 @@ if(isset($_POST['save'])){
             foreach($query as $row)
             {
               ?>
-    <form id="laptopForm" method="POST"  novalidate>
+    <form id="laptopForm" method="POST" action="update.php"  novalidate>
         <input type="text" value="<?php echo $id ?>" name="this_id" hidden>
         <!-- Laptop Name -->
         <div class="form-group">
