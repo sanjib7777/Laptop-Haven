@@ -390,17 +390,10 @@ include 'footer.php';
 </script>
 
 
-        <?php if (isset($_SESSION['message_delete'])){ ?>
-          alertify.set('notifier','delay', 2);
-        alertify.set('notifier','position', 'top-right');
-        alertify.error('<?php echo $_SESSION['message_delete'] ?>');
-        <?php 
-        unset($_SESSION['message_delete']);
-        } 
-        ?>
+      
         
         
-      </script>
+      
 
 
 <!-- jQuery Plugins -->
