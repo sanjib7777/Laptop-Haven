@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         exit();
     } else {
         // Authentication failed, you may display an error message
-        echo "Invalid username or password";
+        $_SESSION['notlogin'] = "Invalid password or username";
         // header("Location: index.php");
 
     }
@@ -48,6 +48,10 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="signup_login.css">
     <title>Document</title>
+    <!-- Alertify js -->
+	 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* Add your existing styles here */
@@ -93,6 +97,18 @@ $conn->close();
             </p>
         </div>
     </form>
+
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script>
+<?php if (isset($_SESSION['notlogin'])){ ?>
+          alertify.set('notifier','delay', 2);
+        alertify.set('notifier','position', 'top-right');
+        alertify.error('<?php echo $_SESSION['notlogin'] ?>');
+        <?php 
+        unset($_SESSION['notlogin']);
+        } 
+        ?>
+</script>
 
 </body>
 </html>
