@@ -181,19 +181,7 @@ include 'footer.php';
 <script src="js/nouislider.min.js"></script>
 <script src="js/jquery.zoom.min.js"></script>
 <script src="js/main.js"></script>
-<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-<script>
-<?php if (isset($_SESSION['cart_status'])){ ?>
-          alertify.set('notifier','delay', 2);
-        alertify.set('notifier','position', 'top-right');
-        alertify.success('<?php echo $_SESSION['cart_status'] ?>');
-        <?php 
-        
-        
-        unset($_SESSION['cart_status']);
-        } 
-        ?>
-</script>
+
 
 </body>
 

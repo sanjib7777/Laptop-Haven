@@ -2,8 +2,9 @@
 include 'connect.php';
 session_start();
 
-if (isset($_POST['addtocart']) || isset($_POST['addtocart1']) ) {
-    $Laptop_id = $_POST['Lid'];
+$Laptop_id = $_POST['Lid'];
+
+if ((isset($_POST['addtocart']) || isset($_POST['addtocart1']) ) && $_SESSION['status'] === 'logged_in' ) {
     $user_id = $_SESSION['user'];
     
     // Fetch the existing cart value
@@ -35,11 +36,20 @@ if (isset($_POST['addtocart']) || isset($_POST['addtocart1']) ) {
     } else {
         $_SESSION['cart_status'] = "Error fetching existing cart: " . mysqli_error($conn);
     }
-    if (isset($_POST['addtocart'])){
-    header("location:index.php");
-    }
-    else{
-        header("location:product.php?Laptop_id=$Laptop_id ");
-    }
+   
+   
 }
+else{
+    $_SESSION['login_status'] = "Please Login";
+    
+    header("location:index.php");
+   
+}
+if (isset($_POST['addtocart'])){
+    header("location:index.php");
+}
+else{
+    header("location:product.php?Laptop_id=$Laptop_id");
+}
+
 ?>

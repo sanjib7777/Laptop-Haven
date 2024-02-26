@@ -9,14 +9,14 @@ session_start();
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Alertify js -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+	 <!-- Alertify js -->
+	 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
   
 
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<link rel="stylesheet" href="product.css">
-	<title>Electro - HTML Ecommerce Template</title>
+	<title>Laptop Store</title>
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -175,6 +175,7 @@ session_start();
 							<?php
 							
 							if (isset($_SESSION['status']) && $_SESSION['status'] === 'logged_in') {
+								$_SESSION['user_status'] = "Welcome " . $_SESSION['user'];
 								echo '<li ><span style="color:white;">Welcome ' . $_SESSION['user'] . ' !</span></li>';
 								echo '<li class="nav-item dropdown">';
 								echo '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>';
@@ -272,3 +273,19 @@ session_start();
 		<!-- /MAIN HEADER -->
 	</header>
 	<!-- /HEADER -->
+
+	<!-- alertify js -->
+	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+      <script>
+        
+        <?php  if (isset($_SESSION['login_status'])){ ?>
+          
+          alertify.set('notifier','delay', 2);
+        alertify.set('notifier','position', 'top-right');
+        alertify.notify('<?php echo $_SESSION['login_status'] ?>');
+        <?php 
+        unset($_SESSION['login_status']);
+        } 
+        ?>
+		
+		</script>

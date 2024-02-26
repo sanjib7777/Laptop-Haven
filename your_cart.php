@@ -13,24 +13,33 @@
 
 <body>
 
-    <?php
-    include 'connect.php';
-    session_start();
-    $user_id = $_SESSION['user'];
-    $query = "SELECT cart FROM user_info WHERE Username = '$user_id'";
-    $result = mysqli_query($conn, $query);
+<?php
+include 'connect.php';
+session_start();
+$user_id = $_SESSION['user'];
+$query = "SELECT cart FROM user_info WHERE Username = '$user_id'";
+$result = mysqli_query($conn, $query);
 
-    if ($result) {
-        $row = mysqli_fetch_assoc($result);
-        $cart = $row['cart'];
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    $cart = $row['cart'];
 
-        // Split the cart by commas
-        $laptop_ids1 = explode(',', $cart);
-        $laptop_ids = array_unique($laptop_ids1);
-    ?>
+    // Split the cart by commas and remove empty values
+    $laptop_ids1 = array_filter(explode(',', $cart));
+    $laptop_ids = array_unique($laptop_ids1);
+?>
+<?php
 
+if (empty($laptop_ids)) {
+    echo '<h1 class="text-center">Your cart is empty.</h1>';
+}
+
+ else {
+?>
     <div class="container mt-5">
         <h2>Your Cart</h2>
+       
+
         <table class="table table-bordered" id="cartTable">
             <thead>
                 <tr>
@@ -61,14 +70,19 @@
                     </td>
                     <td class="subtotal">Rs.<?php echo $laptop_row['Price'] ?></td>
                     <td>
-                        <button class="btn btn-danger btn-sm delete-row">
+                        <form action="delete_item.php" method="post">
+                            <input type="hidden" value="<?php echo $user_id ?>" name="user_id">
+                            <input type="hidden" value="<?php echo $laptop_id ?>" name="Laptop_id">
+                        <button class="btn btn-danger btn-sm delete-row" type="submit" name="submit">
                             <i class="fas fa-trash-alt"></i>
                         </button>
+                        </form>
                     </td>
                 </tr>
                 <?php
                     }
                 }
+            
                 ?>
                 <!-- Repeat rows for each item in the cart -->
             </tbody>
@@ -76,34 +90,45 @@
     </div>
 
     <?php
-    } // Close the if ($result) block
+    }
+ } // Close the if ($result) block
     ?>
 
     <!-- Add Bootstrap JS and Popper.js scripts -->
     <script src="js/bootstrap.bundle.min.js"></script>
     <!-- Add jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Update subtotal on quantity change
-            $('.quantity').on('input', function () {
-                updateSubtotal($(this));
-            });
-
-            // Delete row on button click
-            $('.delete-row').on('click', function () {
-                $(this).closest('tr').remove();
-            });
-
-            // Function to update subtotal
-            function updateSubtotal(input) {
-                var quantity = parseFloat(input.val());
-                var price = parseFloat(input.data('price'));
-                var subtotal = quantity * price;
-                input.closest('tr').find('.subtotal').text('Rs.' + subtotal.toFixed(2));
-            }
+    <!-- Add jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Update subtotal on quantity change
+        $('.quantity').on('input', function () {
+            updateSubtotal($(this));
         });
-    </script>
+
+        // Delete row on button click
+        $('.delete-row').on('click', function () {
+            var laptopId = $(this).closest('tr').data('laptop-id');
+            
+            // Redirect to delete_item.php with laptopId as a parameter
+            window.location.href = 'delete_item.php?laptopId=' + laptopId;
+        });
+
+        // Function to update subtotal
+        function updateSubtotal(input) {
+            var quantity = parseFloat(input.val());
+            var price = parseFloat(input.data('price'));
+            var subtotal = quantity * price;
+            input.closest('tr').find('.subtotal').text('Rs.' + subtotal.toFixed(2));
+        }
+    });
+</script>
+
+
+
+
+
 </body>
 
 </html>
