@@ -1,3 +1,7 @@
+<?php
+include 'header.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +19,6 @@
 
 <?php
 include 'connect.php';
-session_start();
 $user_id = $_SESSION['user'];
 $query = "SELECT cart FROM user_info WHERE Username = '$user_id'";
 $result = mysqli_query($conn, $query);
@@ -132,3 +135,6 @@ if (empty($laptop_ids)) {
 </body>
 
 </html>
+<?php
+include 'footer.php';
+?>

@@ -15,11 +15,7 @@ session_start();
 
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	<link rel="stylesheet" href="product.css">
-<<<<<<< HEAD
 	<title>GadgetTech</title>
-=======
-	<title>Laptop Store</title>
->>>>>>> 4ee0b1169a716724c06844d968682a33c06b884d
 	<!-- fontawesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -205,7 +201,7 @@ session_start();
 					<!-- LOGO -->
 					<div class="col-md-3">
 						<div class="header-logo">
-							<a href="#" class="logo">
+							<a href="index.php" class="logo">
 								<img src="./img/logo.png" alt=""style="width:80px">
 							</a>
 						</div>
